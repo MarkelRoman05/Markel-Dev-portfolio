@@ -2,7 +2,7 @@
 const minibio = "Full-Stack Developer";
 const bio =
   "Soy un desarrollador apasionado por la tecnología y la innovación. Me encanta aprender nuevas tecnologías y aplicar mis conocimientos para resolver problemas del mundo real.";
-const welcomeMessage = "Hola, soy Markel";
+const welcomeMessage = "¡Hola, soy Markel!";
 ---
 
 <section class="home-header">
@@ -16,27 +16,49 @@ const welcomeMessage = "Hola, soy Markel";
   <p>{bio}</p>
 </section>
 
+<section class="container">
+  <h2>Proyectos</h2>
+  <p>Estos son algunos de los proyectos en los que he trabajado:</p>
+  <ul>
+    <li>
+      <a href="">Proyecto 1</a>
+    </li>
+    <li>
+      <a href="">Proyecto 2</a>
+    </li>
+  </ul>
+</section>
 <style>
   body {
-	background: linear-gradient(135deg, #1e1e1e, #2c3e50);
     margin: 0;
     padding: 0;
   }
+
+  ul li {
+    list-style: none;
+  }
+
   .home-header {
     padding: 11rem;
     text-align: center;
   }
   h1 {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Oswald";
     color: white;
-	font-size: 5rem;
+    font-size: 5rem;
+  }
+  h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 4rem;
   }
   p {
     color: white;
   }
 
   .subtitle {
-	font-size: 2rem;
-	color: white;
+    font-family: "Afacad Flux";
+    font-size: 2rem;
+    color: white;
   }
 </style>

@@ -13,23 +13,24 @@ title: "Encabezado";
   </div>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/sobre-mi">Sobre mí</a></li>
-      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/about">Sobre mí</a></li>
+      <li><a href="/projects">Proyectos</a></li>
+      <li><a href="/contact">Contacto</a></li>
     </ul>
   </nav>
 </header>
 <slot />
 
 <style>
-  header {
+  header { 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
-    background-color: transparent;
+    padding: 0 2.2rem;
+    background-color: #0a0a0a;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
   }
 
   .logo-container {
@@ -54,7 +55,7 @@ title: "Encabezado";
 
   nav ul {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -66,6 +67,8 @@ title: "Encabezado";
 
   nav ul li a {
     color: white;
+    font-family: "Roboto", serif;
+    font-weight: bold;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
@@ -75,19 +78,7 @@ title: "Encabezado";
     color: #ff6347;
   }
 
-  nav ul li::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ff6347;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-  }
-
-  nav ul li:hover::after {
+  nav ul li a:hover::after {
     width: 100%;
   }
 </style>

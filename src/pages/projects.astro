@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectsComponent from "../components/Projects.astro";
+
+---
+<style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  
+    .content-wrap {
+      flex: 1;
+    }
+  </style>
+  
+  <div class="page-container">
+    <Layout>
+      <Header />
+      <div class="content-wrap">
+        <ProjectsComponent />
+      </div>
+      <Footer />
+    </Layout>
+  </div>

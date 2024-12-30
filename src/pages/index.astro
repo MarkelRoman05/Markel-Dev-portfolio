@@ -1,13 +1,33 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import Home from "../components/Home.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout>
-	<Header>
-	<Welcome />
-</Layout>
+<style>
+	html, body {
+	  height: 100%;
+	  margin: 0;
+	}
+  
+	.page-container {
+	  display: flex;
+	  flex-direction: column;
+	  min-height: 100vh;
+	}
+  
+	.content-wrap {
+	  flex: 1;
+	}
+  </style>
+  
+  <div class="page-container">
+	<Layout>
+	  <Header />
+	  <div class="content-wrap">
+		<Home />
+	  </div>
+	  <Footer />
+	</Layout>
+  </div>
