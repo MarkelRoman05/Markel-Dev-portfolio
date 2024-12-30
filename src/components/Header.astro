@@ -1,18 +1,37 @@
 ---
 import { Image } from "astro:assets";
 import logoImg from "../assets/images/MarkelDev-logo.png";
-
-title: "Encabezado";
 ---
 
 <header>
   <div class="logo-container">
     <a href="/" title="Volver a la página de inicio">
-        <Image height={80} src={logoImg} alt="Logo de la página" loading={"eager"} />
+      <Image
+        height={50}
+        width={70}
+        src={logoImg}
+        alt="Logo de la página"
+        loading={"eager"}
+      />
     </a>
   </div>
   <nav>
-    <ul>
+    <button class="menu-toggle" aria-label="Menú"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+        ></path>
+      </svg></button
+    >
+    <ul id="menu">
       <li><a href="/">Inicio</a></li>
       <li><a href="/about">Sobre mí</a></li>
       <li><a href="/projects">Proyectos</a></li>
@@ -23,7 +42,7 @@ title: "Encabezado";
 <slot />
 
 <style>
-  header { 
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,13 +57,13 @@ title: "Encabezado";
     align-items: center;
   }
 
-  .logo-container img {
-    height: 80px;
-  }
-
   .logo-container img:hover {
     transform: rotate(360deg);
     transition: transform 0.5s ease;
+  }
+
+  .logo-container img {
+    margin: 0.8rem;
   }
 
   h1 {
@@ -81,4 +100,65 @@ title: "Encabezado";
   nav ul li a:hover::after {
     width: 100%;
   }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 590px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    nav ul {
+      flex-direction: column;
+      position: fixed;
+      top: 77px;
+      left: -100%;
+      width: 100%;
+      height: calc(100% - 80px);
+      background-color: #0a0a0a;
+      padding-top: 2rem;
+      transition: left 0.3s ease;
+    }
+
+    nav ul.show {
+      display: flex;
+      align-items: center;
+      left: 0;
+    }
+
+    nav ul li {
+      margin-bottom: 1rem;
+    }
+
+    nav ul li a {
+      font-size: 1.5rem;
+    }
+  }
 </style>
+
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("#menu");
+
+  menuToggle?.addEventListener("click", () => {
+    menu?.classList.toggle("show");
+    menuToggle.innerHTML = menu?.classList.contains("show")
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg>`
+      : `
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>`;
+    document.body.style.overflow = menu?.classList.contains("show")
+      ? "hidden"
+      : "auto";
+  });
+</script>
