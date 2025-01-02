@@ -1,41 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactComponent from "../components/Contact.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/png" href="/logo.png" />
-  <meta name="generator" content={Astro.generator} />
-  <title>Contacto - MarkelDev</title>
-</head>
 
-<style>
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-  }
-
-  .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .content-wrap {
-    flex: 1;
-  }
-</style>
-
-<div class="page-container">
-  <Layout>
-    <Header />
-    <div class="content-wrap">
-      <ContactComponent />
-    </div>
-    <Footer />
-  </Layout>
-</div>
+<Layout title="Contacto">
+  <ContactComponent />
+</Layout>

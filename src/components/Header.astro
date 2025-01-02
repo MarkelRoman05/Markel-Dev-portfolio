@@ -1,45 +1,58 @@
 ---
 import { Image } from "astro:assets";
 import logoImg from "../assets/images/MarkelDev-logo.png";
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (path: string) => (currentPath === path ? "active" : "");
 ---
 
-<header>
-  <div class="logo-container">
-    <a href="/" title="Volver a la página de inicio">
-      <Image
-        height={50}
-        width={70}
-        src={logoImg}
-        alt="Logo de la página"
-        loading={"eager"}
-      />
-    </a>
-  </div>
-  <nav>
-    <button class="menu-toggle" aria-label="Menú"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="30"
-        fill="currentColor"
-        class="bi bi-list"
-        viewBox="0 0 16 16"
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="/" title="Volver a la página de inicio">
+        <Image
+          height={50}
+          width={70}
+          src={logoImg}
+          alt="Logo de la página"
+          loading={"eager"}
+        />
+      </a>
+    </div>
+    <nav>
+      <button class="menu-toggle" aria-label="Menú"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+          ></path>
+        </svg></button
       >
-        <path
-          fill-rule="evenodd"
-          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-        ></path>
-      </svg></button
-    >
-    <ul id="menu">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/about">Sobre mí</a></li>
-      <li><a href="/projects">Proyectos</a></li>
-      <li><a href="/contact">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-<slot />
+      <ul id="menu">
+        <li><a id="inicio" href="/" class={isActive("/")}>Inicio</a></li>
+        <li>
+          <a id="sobre-mi" href="/about" class={isActive("/about")}>Sobre mí</a>
+        </li>
+        <li>
+          <a id="proyectos" href="/projects" class={isActive("/projects")}
+            >Proyectos</a>
+        </li>
+        <li>
+          <a id="contacto" href="/contact" class={isActive("/contact")}
+            >Contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
 
 <style>
   header {
@@ -70,6 +83,19 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
     font-size: 1.5rem;
     margin: 0;
     color: white;
+  }
+
+  nav ul li a:hover {
+    color: #ff6347;
+    border: 1px solid #333;
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  nav ul li a.active {
+    border: 1px solid #333;
+    padding: 0.5rem;
+    border-radius: 1rem;
   }
 
   nav ul {
@@ -110,6 +136,11 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
     cursor: pointer;
   }
 
+  .menu-toggle:hover {
+    color: #ff6347;
+    transition: color 0.3s ease;
+  }
+
   @media (max-width: 590px) {
     .menu-toggle {
       display: block;
@@ -143,22 +174,4 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
   }
 </style>
 
-<script>
-  const menuToggle = document.querySelector(".menu-toggle");
-  const menu = document.querySelector("#menu");
-
-  menuToggle?.addEventListener("click", () => {
-    menu?.classList.toggle("show");
-    menuToggle.innerHTML = menu?.classList.contains("show")
-      ? `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-</svg>`
-      : `
-  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-</svg>`;
-    document.body.style.overflow = menu?.classList.contains("show")
-      ? "hidden"
-      : "auto";
-  });
-</script>
+<script></script>
