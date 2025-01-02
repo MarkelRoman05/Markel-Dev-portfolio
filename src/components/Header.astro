@@ -1,10 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import logoImg from "../assets/images/MarkelDev-logo.png";
-
-const currentPath = Astro.url.pathname;
-
-const isActive = (path: string) => (currentPath === path ? "active" : "");
 ---
 
 <body>
@@ -37,17 +33,17 @@ const isActive = (path: string) => (currentPath === path ? "active" : "");
         </svg></button
       >
       <ul id="menu">
-        <li><a id="inicio" href="/" class={isActive("/")}>Inicio</a></li>
         <li>
-          <a id="sobre-mi" href="/about" class={isActive("/about")}>Sobre mí</a>
+          <a id="inicio" href="#home">Inicio</a>
         </li>
         <li>
-          <a id="proyectos" href="/projects" class={isActive("/projects")}
-            >Proyectos</a>
+          <a id="sobre-mi" href="#sobre-mi">Sobre mí</a>
         </li>
         <li>
-          <a id="contacto" href="/contact" class={isActive("/contact")}
-            >Contacto</a>
+          <a id="proyectos" href="#proyectos">Proyectos</a>
+        </li>
+        <li>
+          <a id="contacto" href="#contacto">Contacto</a>
         </li>
       </ul>
     </nav>
@@ -87,15 +83,6 @@ const isActive = (path: string) => (currentPath === path ? "active" : "");
 
   nav ul li a:hover {
     color: #ff6347;
-    border: 1px solid #333;
-    padding: 0.5rem;
-    border-radius: 1rem;
-  }
-
-  nav ul li a.active {
-    border: 1px solid #333;
-    padding: 0.5rem;
-    border-radius: 1rem;
   }
 
   nav ul {
@@ -174,4 +161,12 @@ const isActive = (path: string) => (currentPath === path ? "active" : "");
   }
 </style>
 
-<script></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle?.addEventListener('click', function () {
+      menu?.classList.toggle('show');
+    });
+  });
+</script>
