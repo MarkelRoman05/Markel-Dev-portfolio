@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "404 Página no encontrada";
+const description = "Lo sentimos, la página que buscas no existe.";
+---
+
+<Layout title={title}>
+    <section class="error-page">
+        <h1>404</h1>
+        <p>{description}</p>
+        <a href="/">Volver al inicio</a>
+    </section>
+
+    <style>
+        .error-page {
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-page h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+        }
+        .error-page p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .error-page a {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        .error-page a:hover {
+            background-color: white;
+            color: black;
+            transition: all 0.5s ease;
+        }
+    </style>
+</Layout>

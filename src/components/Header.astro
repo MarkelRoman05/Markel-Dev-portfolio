@@ -4,9 +4,9 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
 ---
 
 <body>
-  <header>
+  <header class="header">
     <div class="logo-container">
-      <a href="/" title="Volver a la página de inicio">
+      <a href="/">
         <Image
           height={50}
           width={70}
@@ -34,9 +34,6 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
       >
       <ul id="menu">
         <li>
-          <a id="inicio" href="#home">Inicio</a>
-        </li>
-        <li>
           <a id="sobre-mi" href="#sobre-mi">Sobre mí</a>
         </li>
         <li>
@@ -53,12 +50,22 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
 <style>
   header {
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2.2rem;
+    width: 100%;
+    padding: 0rem 2rem;
     background-color: #0a0a0a;
     color: white;
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .centered {
+    justify-content: center;
+    transition: all 1s ease;
+    .logo-container {
+      margin-right: 20px;
+    }
   }
 
   .logo-container {
@@ -162,11 +169,27 @@ import logoImg from "../assets/images/MarkelDev-logo.png";
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    menuToggle?.addEventListener('click', function () {
-      menu?.classList.toggle('show');
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.getElementById("menu");
+    menuToggle?.addEventListener("click", function () {
+      menu?.classList.toggle("show");
     });
+
+    const menuLinks = document.querySelectorAll("nav ul li a");
+    menuLinks.forEach(link => {
+      link.addEventListener("click", function () {
+        menu?.classList.remove("show");
+      });
+    });
+  });
+
+  const header = document.querySelector("header");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      header?.classList.add("centered");
+    } else {
+      header?.classList.remove("centered");
+    }
   });
 </script>
