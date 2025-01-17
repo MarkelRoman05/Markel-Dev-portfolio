@@ -9,18 +9,68 @@ const bio =
   <div class="welcome-info">
     <h1>{welcomeMessage}</h1>
     <p class="subtitle">{minibio}</p>
+    <p class="scroll-down">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-move-down"
+        ><path d="M8 18L12 22L16 18"></path><path d="M12 2V22"></path></svg
+      >
+      Desliza hacia abajo para ver más
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-move-down"
+        ><path d="M8 18L12 22L16 18"></path><path d="M12 2V22"></path></svg
+      >
+    </p>
   </div>
 </div>
 
 <style>
-  .welcome-header {
-    padding: 11rem;
-    text-align: center;
-  }
-
   .subtitle {
     font-family: "Afacad Flux";
     font-size: 2rem;
     color: white;
   }
+
+  .scroll-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Afacad Flux";
+    font-size: 1.5rem;
+    color: white;
+    animation: bounce 1.5s infinite;
+    position: absolute;
+    bottom: 2rem;
+    left: 43%;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
 </style>
