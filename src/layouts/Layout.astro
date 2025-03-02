@@ -41,7 +41,7 @@ const { title, description = "A modern personal portfolio built with Astro" } =
 
       // Tema oscuro / claro
       const initializeTheme = () => {
-        const savedTheme = localStorage.getItem("theme");
+        const savedTheme = localStorage.getItem("MARKEL05_PORTFOLIO:THEME");
 
         if (
           savedTheme === "dark" ||
@@ -49,10 +49,10 @@ const { title, description = "A modern personal portfolio built with Astro" } =
             window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
           document.documentElement.classList.add("dark");
-          localStorage.setItem("theme", "dark");
+          localStorage.setItem("MARKEL05_PORTFOLIO:THEME", "dark");
         } else {
           document.documentElement.classList.remove("dark");
-          localStorage.setItem("theme", "light");
+          localStorage.setItem("MARKEL05_PORTFOLIO:THEME", "light");
         }
       };
 
@@ -65,10 +65,10 @@ const { title, description = "A modern personal portfolio built with Astro" } =
 
         if (isDark) {
           document.documentElement.classList.remove("dark");
-          localStorage.setItem("theme", "light");
+          localStorage.setItem("MARKEL05_PORTFOLIO:THEME", "light");
         } else {
           document.documentElement.classList.add("dark");
-          localStorage.setItem("theme", "dark");
+          localStorage.setItem("MARKEL05_PORTFOLIO:THEME", "dark");
         }
       });
     </script>
