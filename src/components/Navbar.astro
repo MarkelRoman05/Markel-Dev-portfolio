@@ -19,19 +19,19 @@ const navItems = [
 
     <div class="flex items-center gap-6">
       <nav class="hidden md:block">
-        <ul class="flex space-x-8">
+        <ul class="flex space-x-5">
           {
             navItems.map((item, index) => (
               <>
                 <li>
-                  <a
+                    <a
                     href={item.url}
                     class="text-dark dark:text-white dark:hover:text-secondary hover:text-primary transition-colors duration-300 font-medium"
                   >
                     {item.name}
                   </a>
                 </li>
-                {index < navItems.length - 1 && <span class="text-dark dark:text-white">|</span>}
+                {index < navItems.length - 1 && <span class="text-dark dark:text-white select-none">|</span>}
               </>
             ))
           }
