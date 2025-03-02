@@ -1,24 +1,99 @@
 ---
-import "bootstrap/dist/css/bootstrap.css";
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
+interface Props {
+  title: string;
+  description?: string;
+}
 
-const { title } = Astro.props;
+const { title, description = "A modern personal portfolio built with Astro" } =
+  Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Markel05 Developer Portfolio</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
   </head>
-  <body>
-    <main>
-      <slot />
-    </main>
-    <Footer />
+  <body
+    class="bg-light text-dark dark:bg-dark dark:text-white transition-colors duration-300"
+  >
+    <slot />
+    <script>
+      import AOS from "aos";
+      import "aos/dist/aos.css";
+
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+      });
+
+      // Tema oscuro / claro
+      const initializeTheme = () => {
+        const savedTheme = localStorage.getItem("theme");
+
+        if (
+          savedTheme === "dark" ||
+          (!savedTheme &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      };
+
+      // Set theme on initial load
+      initializeTheme();
+
+      // Listen for theme toggle events
+      document.addEventListener("themeToggle", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+
+        if (isDark) {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      });
+    </script>
   </body>
 </html>
+
+<style is:global>
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .gradient-text {
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+  }
+</style>

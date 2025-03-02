@@ -1,91 +1,97 @@
 ---
-
+const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <div class="social-links">
-    <nav>
-      <ul>
-        <li>
-          <a
-            href="https://linktr.ee/markel05"
-            target="_blank"
-            title="Social links"
-            aria-label="Social links"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              fill="currentColor"
-              class="bi bi-link-45deg"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"
-              ></path>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="footer-content">
-    <p class="footer-text">&copy; {new Date().getFullYear()} Markel05</p>
+<footer class="bg-dark text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-6 md:mb-0">
+        <a href="#home" class="text-2xl font-bold gradient-text">Portfolio</a>
+        <p class="text-gray-400 mt-2">
+          Building exceptional digital experiences.
+        </p>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#home"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Home</a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="text-gray-400 hover:text-white transition-colors"
+                >About</a>
+            </li>
+            <li>
+              <a
+                href="#skills"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Skills</a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Projects</a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Connect</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+                >GitHub</a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+                >LinkedIn</a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors">X</a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+      <p class="text-gray-400">
+        &copy; {currentYear} · Markel05
+      </p>
+    </div>
   </div>
 </footer>
-
-<style>
-  footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 5px 0;
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .social-links svg:hover {
-    color: #ff6347;
-    transition: color 0.3s ease;
-  }
-
-  .footer-text {
-    font-size: 0.8rem;
-    font-family: "JetBrains Mono";
-  }
-
-  nav ul {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-  }
-
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-</style>
