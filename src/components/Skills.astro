@@ -1,77 +1,116 @@
 ---
 const skills = [
   {
-    category: "Frontend",
-    items: [
-      { name: "HTML5", level: 90 },
-      { name: "CSS3/SCSS", level: 85 },
-      { name: "JavaScript", level: 90 },
-      { name: "TypeScript", level: 80 },
-      { name: "React", level: 85 },
-      { name: "Vue.js", level: 75 },
-    ]
+    name: "VS Code",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
   },
   {
-    category: "Backend",
-    items: [
-      { name: "Node.js", level: 85 },
-      { name: "Express", level: 80 },
-      { name: "Python", level: 70 },
-      { name: "Django", level: 65 },
-      { name: "PostgreSQL", level: 75 },
-      { name: "MongoDB", level: 80 },
-    ]
+    name: "Angular",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
   },
   {
-    category: "Tools & Others",
-    items: [
-      { name: "Git", level: 85 },
-      { name: "Docker", level: 70 },
-      { name: "AWS", level: 65 },
-      { name: "Figma", level: 75 },
-      { name: "Responsive Design", level: 90 },
-      { name: "SEO", level: 70 },
-    ]
-  }
+    name: "Vue.js",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  },
+  {
+    name: "Astro",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
+  },
+  {
+    name: "JavaScript",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "TypeScript",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    logo: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg",
+  },
+  {
+    name: "Node.js",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "Java",
+    logo: "https://cdn.worldvectorlogo.com/logos/java-4.svg",
+  },
+  {
+    name: "MySQL",
+    logo: "https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg",
+  },
+  {
+    name: "Firebase", 
+    logo: "https://cdn.worldvectorlogo.com/logos/firebase-1.svg",
+  },
+  {
+    name: "ArangoDB",
+    logo: "https://cdn.worldvectorlogo.com/logos/arangodb.svg",
+  },
+  {
+    name: "Git",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    name: "GitHub",
+    logo: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg",
+  },
+  {
+    name: "AWS",
+    logo: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-2.svg",
+  },
+  {
+    name: "Microsoft Azure",
+    logo: "https://cdn.worldvectorlogo.com/logos/azure-2.svg",
+  },
 ];
 ---
 
-<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-      <div class="w-20 h-1 gradient-bg mx-auto rounded-full"></div>
-      <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto transition-colors duration-300">
-        Here are some of the technologies and tools I work with on a daily basis.
+<section
+  id="skills"
+  class="py-20 transition-colors duration-300 bg-gray-50 dark:bg-gray-800"
+>
+  <div class="container px-4 mx-auto">
+    <div class="mb-16 text-center" data-aos="fade-up">
+      <h2 class="mb-4 text-3xl font-bold md:text-4xl">Skills</h2>
+      <div class="w-20 h-1 mx-auto rounded-full gradient-bg"></div>
+      <p
+        class="max-w-2xl mx-auto mt-4 text-gray-600 transition-colors duration-300 dark:text-gray-400"
+      >
+        Aquí tienes una lista de las tecnologías y herramientas con las que
+        estoy más familiarizado.
       </p>
     </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      {skills.map((skillGroup, index) => (
-        <div 
-          class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md transition-colors duration-300" 
-          data-aos="fade-up" 
-          data-aos-delay={index * 100}
-        >
-          <h3 class="text-xl font-semibold mb-6 gradient-text">{skillGroup.category}</h3>
-          <div class="space-y-6">
-            {skillGroup.items.map(skill => (
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">{skill.name}</span>
-                  <span class="text-gray-500 dark:text-gray-400 transition-colors duration-300">{skill.level}%</span>
-                </div>
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
-                  <div 
-                    class="gradient-bg h-2 rounded-full" 
-                    style={`width: ${skill.level}%`}
-                  ></div>
-                </div>
+
+    <div
+      class="p-8 transition-colors duration-300 bg-white rounded-lg shadow-md dark:bg-gray-700"
+      data-aos="fade-up"
+    >
+      <div
+        class="grid grid-cols-2 gap-8 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+      >
+        {
+          skills.map((skill, index) => (
+            <div
+              class="flex flex-col items-center justify-center gap-3 transition-transform duration-300 hover:scale-110"
+              data-aos="fade-up"
+              data-aos-delay={index * 50}
+            >
+              <div class="flex items-center justify-center w-16 h-16 transition-transform hover:scale-110">
+                <img
+                  src={skill.logo}
+                  alt={`${skill.name} logo`}
+                  class="max-w-full max-h-full"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      ))}
+              <span class="text-sm font-medium text-center text-gray-700 transition-colors duration-300 dark:text-gray-300">
+                {skill.name}
+              </span>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
