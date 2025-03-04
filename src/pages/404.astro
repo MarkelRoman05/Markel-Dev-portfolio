@@ -2,20 +2,32 @@
 import Layout from "../layouts/Layout.astro";
 
 const title = "404 Página no encontrada";
-const description = "Lo sentimos, la página que buscas no existe.";
+const description = "La página que buscas no existe.";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout title={title}>
     <section class="error-page">
         <h1>404</h1>
         <p>{description}</p>
-        <a href="/">Volver al inicio</a>
+        <a href="/">Volver al portfolio</a>
     </section>
+    <div class="pt-8 mt-8 text-center border-t border-gray-700">
+        <p class="text-gray-400">
+            &copy; {currentYear} Markel05
+        </p>
+    </div>
 
     <style>
         .error-page {
             text-align: center;
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
         }
         .error-page h1 {
             font-size: 6rem;
