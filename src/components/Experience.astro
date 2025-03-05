@@ -6,7 +6,15 @@ const experiences = [
         period: "2024 - Actualidad (Formación Dual)",
         description:
             "Participación en el desarrollo de una aplicación web para mostrar la postura de ciberseguridad de un cliente. Análisis de vulnerabilidades y respuesta a incidentes de seguridad. Implementación de medidas de seguridad en infraestructuras cloud.",
-        technologies: ["MS Sentinel", "Microsoft Azure", "Vue.js", "Node.js", "FastAPI", "ArangoDB", "Zoho"],
+        technologies: [
+            "MS Sentinel",
+            "Microsoft Azure",
+            "Vue.js",
+            "Node.js",
+            "FastAPI",
+            "ArangoDB",
+            "Zoho",
+        ],
     },
     {
         title: "Administrador de Sistemas de TI",
@@ -14,7 +22,14 @@ const experiences = [
         period: "2023",
         description:
             "Gestión de usuarios en Active Directory y Microsoft Entra ID, con sincronización On-premise. Automatización de procesos mediante PowerShell, incluyendo cifrado con BitLocker y notificaciones de caducidad de contraseñas. Manejo de incidencias internas y gestión de activos de TI con herramientas ITAM, ITSM y Service Desk. Dominio de tecnologías como Microsoft Azure, VMware vSphere, ManageEngine MDM y Visual Studio Code.",
-        technologies: ["Active Directory", "PowerShell", "BitLocker", "Microsoft Azure", "VMware vSphere", "Visual Studio Code"],
+        technologies: [
+            "Active Directory",
+            "PowerShell",
+            "BitLocker",
+            "Microsoft Azure",
+            "VMware vSphere",
+            "Visual Studio Code",
+        ],
     },
 ];
 ---
@@ -32,8 +47,8 @@ const experiences = [
             <p
                 class="max-w-2xl mx-auto mt-4 text-gray-600 transition-colors duration-300 dark:text-gray-400"
             >
-                Esta es la lista de mi experiencia laboral. He trabajado
-                tanto en la parte de Administración de Sistemas como en el de
+                Esta es la lista de mi experiencia laboral. He trabajado tanto
+                en la parte de Administración de Sistemas como en el de
                 Desarrollo y Ciberseguridad.
             </p>
         </div>
@@ -71,7 +86,8 @@ const experiences = [
 
                                 <div class="flex flex-wrap gap-2">
                                     {exp.technologies.map((tech) => (
-                                        <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                                        <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 select-none dark:text-gray-300
+                                         dark:hover:bg-gray-600 hover:bg-gray-200">
                                             {tech}
                                         </span>
                                     ))}

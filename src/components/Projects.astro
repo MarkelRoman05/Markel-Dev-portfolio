@@ -64,7 +64,10 @@ const projects = [
 
               <div class="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                  <span
+                    class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 select-none
+                  dark:hover:bg-gray-600 hover:bg-gray-200"
+                  >
                     {tag}
                   </span>
                 ))}
