@@ -6,6 +6,8 @@ interface Props {
 
 const { title, description = "Portfolio personal creado con Astro" } =
   Astro.props;
+
+import { Tooltips } from "astro-tooltips";
 ---
 
 <!doctype html>
@@ -21,6 +23,7 @@ const { title, description = "Portfolio personal creado con Astro" } =
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <Tooltips interactive={false} delay={[15, 150]} />
     <title>{title}</title>
   </head>
   <body

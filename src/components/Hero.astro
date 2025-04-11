@@ -1,5 +1,5 @@
 ---
-
+import { Tooltips } from 'astro-tooltips';
 ---
 
 <section
@@ -35,11 +35,11 @@
         <h2
           class="mb-6 text-2xl font-semibold text-gray-700 transition-colors duration-300 md:text-3xl dark:text-gray-300"
         >
-          Desarrollador y Administrador de Sistemas
+          <span>Desarrollador y Administrador de Sistemas</span>
         </h2>
         <div class="flex flex-wrap gap-4">
           <div class="flex items-start gap-4">
-            <div class="p-3 text-white rounded-lg gradient-bg">
+            <div class="p-3 dark:text-white rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -59,12 +59,19 @@
               <h4
                 class="text-lg font-semibold transition-colors duration-300 dark:text-white"
               >
-                E-mail
+                <span>E-mail</span>
               </h4>
               <p
                 class="text-gray-600 transition-colors duration-300 dark:text-gray-400"
               >
-                markromagonz@gmail.com
+                <span 
+                  onclick="navigator.clipboard.writeText('markromagonz@gmail.com');" 
+                  class="cursor-pointer"
+                  title="Haz clic para copiar"
+                  data-tooltip-placement="bottom"
+                >
+                  markromagonz@gmail.com
+                </span>
               </p>
             </div>
           </div>
@@ -109,6 +116,7 @@
           href="https://github.com/MarkelRoman05"
           target="_blank"
           title="GitHub"
+          data-tooltip-placement="bottom"
           rel="noopener noreferrer"
           class="text-gray-600 transition-colors duration-300 dark:text-gray-400 hover:text-primary dark:hover:text-secondary"
         >
@@ -128,6 +136,7 @@
           href="https://www.linkedin.com/in/markel-rom%C3%A1n-gonz%C3%A1lez/"
           target="_blank"
           title="LinkedIn"
+          data-tooltip-placement="bottom"
           rel="noopener noreferrer"
           class="text-gray-600 transition-colors duration-300 dark:hover:text-secondary dark:text-gray-400 hover:text-primary"
         >
@@ -148,6 +157,7 @@
           target="_blank"
           rel="noopener noreferrer"
           title="X"
+          data-tooltip-placement="bottom"
           class="text-gray-600 transition-colors duration-300 dark:text-gray-400 hover:text-primary dark:hover:text-secondary"
         >
           <svg

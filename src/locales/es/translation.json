@@ -1,0 +1,14 @@
+{
+  "404.title": "404 Página no encontrada",
+  "404.description": "La página que buscas no existe.",
+  "404.backToPortfolio": "Volver al portfolio",
+  "footer.copyright": "© {year} Markel05",
+  "hero.welcome": "Bienvenido a mi portafolio de desarrollo",
+  "hero.description": "Aquí encontrarás información sobre mis proyectos, habilidades y experiencia en el campo del desarrollo de software.",
+  "about.title": "Sobre mí",
+  "about.description": "Soy un desarrollador de software con experiencia en diversas tecnologías y lenguajes de programación. Me apasiona crear soluciones eficientes y escalables.",
+  "experience.title": "Experiencia",
+  "skills.title": "Skills",
+  "projects.title": "Proyectos",
+  "contact.title": "Contacto"
+}
