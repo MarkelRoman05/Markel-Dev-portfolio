@@ -7,7 +7,7 @@ const projects = [
     image:
       "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/09/hipertextual-principales-plataformas-dar-clase-internet-2020079983.jpg?fit=1920%2C1372&quality=50&strip=all&ssl=1",
     tags: ["Angular", "Tailwind CSS", "MySQL", "Express", "Node.js"],
-    liveUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
+    //liveUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
     codeUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
   },
   {
@@ -26,9 +26,8 @@ const projects = [
     image:
       "https://img.freepik.com/vector-gratis/diseno-hombres-negocios-hablando_1133-349.jpg",
     tags: ["Android Studio", "Java", "AWS", "Figma"],
-    status: "En desarrollo",
     // liveUrl: "",
-    codeUrl: "https://github.com/Markel05-Elorrieta/Talk2Sign_AndroidAPP"
+    codeUrl: "https://github.com/Markel05-Elorrieta/Talk2Sign_AndroidAPP",
   },
 ];
 ---
@@ -58,15 +57,10 @@ const projects = [
             data-aos-delay={index * 100}
           >
             <div class="relative h-48 overflow-hidden">
-              {project.status && (
-                <span class="absolute top-2 left-2 px-2 py-1 text-xs font-semibold text-white bg-blue-600 rounded-md z-10">
-                  {project.status}
-                </span>
-              )}
               <img
                 src={project.image}
                 alt={project.title}
-                class="object-cover w-full h-full transition-transform hover:scale-105"
+                class="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
             </div>
 
@@ -90,47 +84,51 @@ const projects = [
               </div>
 
               <div class="flex gap-4">
-                <a
-                  href={project.liveUrl}
-                  class="px-4 py-2 text-sm font-medium text-white transition-opacity rounded-lg gradient-bg hover:opacity-90"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="flex items-center space-x-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-eye-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                    </svg>
-                    <span>Ver resultado</span>
-                  </div>
-                </a>
-                <a
-                  href={project.codeUrl}
-                  class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="flex items-center space-x-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      fill="currentColor"
-                      class="bi bi-code-slash"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
-                    </svg>
-                    <span>Ver repositorio de GitHub</span>
-                  </div>
-                </a>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    class="px-4 py-2 text-sm font-medium text-white transition-opacity rounded-lg gradient-bg hover:opacity-90"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-eye-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                      </svg>
+                      <span>Ver resultado</span>
+                    </div>
+                  </a>
+                )}
+                {project.codeUrl && (
+                  <a
+                    href={project.codeUrl}
+                    class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        class="bi bi-code-slash"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                      </svg>
+                      <span>Ver repositorio de GitHub</span>
+                    </div>
+                  </a>
+                )}
               </div>
             </div>
           </div>
