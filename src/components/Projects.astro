@@ -1,36 +1,13 @@
 ---
-const projects = [
-  {
-    title: "Sistema de Protección y Análisis de Ciberinteligencia",
-    description:
-      "El proyecto tiene como objetivo desarrollar una plataforma avanzada de ciberinteligencia que permita gestionar, analizar y compartir información sobre amenazas de manera estructurada y automatizada. Esta plataforma permite realizar el modelado de la “Postura de Ciberseguridad” (con puntuaciones) de una organización a partir de la identificación de las amenazas a las que hace frente. Para ello, utilizaremos el marco de MITRE ATT&CK. ATT&CK es una guía para clasificar y describir ciberataques e intrusiones. En lugar de observar los resultados de un ataque, identifica tácticas que indican que un ataque está en progreso.",
-    image:
-      "/images/panacea.jpg",
-    tags: ["Vue.js", "Tailwind CSS", "FastAPI", "ArangoDB", "Docker"],
-    liveUrl: "",
-    codeUrl: "",
-  },
-  {
-    title: "Dashboard de gestión de alumnos y profesores",
-    description:
-      "Una aplicación web que permite gestionar alumnos y profesores de un centro educativo. Incluye funcionalidades para el registro, edición y eliminación de usuarios, así como la asignación de alumnos a clases y profesores a materias. Permite visualizar listados, filtrar y buscar información de manera eficiente. Además, cuenta con autenticación de usuarios y diferentes roles de acceso para garantizar la seguridad y privacidad de los datos.",
-    image:
-      "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/09/hipertextual-principales-plataformas-dar-clase-internet-2020079983.jpg?fit=1920%2C1372&quality=50&strip=all&ssl=1",
-    tags: ["Angular", "Tailwind CSS", "MySQL", "Express", "Node.js"],
-    //liveUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
-    codeUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
-  },
-  {
-    title: "Talk2Sign · Traductor de texto/voz a lenguaje de signos",
-    description:
-      "Una aplicación móvil innovadora que traduce texto y voz a lenguaje de signos, representando el resultado mediante un avatar 3D animado. El objetivo principal es facilitar la comunicación entre personas oyentes y personas sordas o con discapacidad auditiva, eliminando barreras de accesibilidad. La app permite introducir texto manualmente o mediante reconocimiento de voz, y genera la interpretación en lenguaje de signos de manera visual e interactiva. Además, cuenta con una interfaz intuitiva y recursos educativos para aprender vocabulario en lengua de signos.",
-    image:
-      "https://img.freepik.com/vector-gratis/diseno-hombres-negocios-hablando_1133-349.jpg",
-    tags: ["Android Studio", "Java", "AWS", "Figma"],
-    // liveUrl: "",
-    codeUrl: "https://github.com/Markel05-Elorrieta/Talk2Sign_APP",
-  },
-];
+import { projects } from "../data/projects";
+
+// Función para truncar la descripción
+function truncate(text: string, maxLength = 180) {
+  if (!text) return "";
+  return text.length > maxLength
+    ? text.slice(0, maxLength).trimEnd() + "..."
+    : text;
+}
 ---
 
 <section
@@ -49,87 +26,69 @@ const projects = [
       </p>
     </div>
 
-    <div class="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
       {
         projects.map((project, index) => (
           <div
-            class="overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:-translate-y-2"
+            class="flex flex-col h-full overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:-translate-y-2"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative h-48 overflow-hidden flex-shrink-0">
               <img
                 src={project.image}
                 alt={project.title}
                 class="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
             </div>
-
-            <div class="p-6">
-              <h3 class="mb-2 text-xl font-semibold transition-colors duration-300 dark:text-white">
-                {project.title}
-              </h3>
-              <p class="mb-4 text-gray-600 transition-colors duration-300 dark:text-gray-400">
-                {project.description}
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-4">
+            <div class="flex flex-col flex-1 p-6 justify-between">
+              <div>
+                <h3 class="mb-2 text-xl font-semibold transition-colors duration-300 dark:text-white">
+                  {project.title}
+                </h3>
+                <p class="mb-4 text-gray-600 transition-colors duration-300 dark:text-gray-400 flex-1 line-clamp-6">
+                  {truncate(project.description)}
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-auto mb-4">
                 {project.tags.map((tag) => (
-                  <span
-                    class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 select-none
-                  dark:hover:bg-gray-600 hover:bg-gray-200"
-                  >
+                  <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 select-none dark:hover:bg-gray-600 hover:bg-gray-200">
                     {tag}
                   </span>
                 ))}
               </div>
-
-              <div class="flex gap-4">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    class="px-4 py-2 text-sm font-medium text-white transition-opacity rounded-lg gradient-bg hover:opacity-90"
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <div>
+                <a
+                  href={`/projects/${project.slug}/`}
+                  class="inline-flex items-center gap-2 px-5 py-2 mt-2 text-sm font-semibold text-white transition bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-lg shadow hover:from-blue-600 hover:via-purple-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    <div class="flex items-center space-x-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-eye-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                      </svg>
-                      <span>Ver resultado</span>
-                    </div>
-                  </a>
-                )}
-                {project.codeUrl && (
-                  <a
-                    href={project.codeUrl}
-                    class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div class="flex items-center space-x-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        fill="currentColor"
-                        class="bi bi-code-slash"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
-                      </svg>
-                      <span>Ver repositorio de GitHub</span>
-                    </div>
-                  </a>
-                )}
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                    <line
+                      x1="12"
+                      y1="16"
+                      x2="12"
+                      y2="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle cx="12" cy="8" r="1" fill="currentColor" />
+                  </svg>
+                  <span>Ver más información</span>
+                </a>
               </div>
             </div>
           </div>

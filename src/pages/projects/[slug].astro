@@ -1,0 +1,163 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const project = projects.find((p) => p.slug === slug);
+
+if (!project) {
+  throw new Error("Proyecto no encontrado");
+}
+---
+
+<Layout title={project.title}>
+  <Navbar />
+  <section
+    class="py-10 md:py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
+  >
+    <div
+      class="container px-2 sm:px-4 mx-auto max-w-full sm:max-w-2xl md:max-w-3xl"
+    >
+      <nav class="mb-4 sm:mb-6 text-xs sm:text-sm" aria-label="Breadcrumb">
+        <ol class="list-reset flex flex-wrap text-gray-500 dark:text-gray-400">
+          <li>
+            <a
+              href="/"
+              class="hover:text-primary dark:hover:text-secondary transition"
+              >Inicio</a
+            >
+            <span class="mx-2">/</span>
+          </li>
+          <li>
+            <a
+              href="/#projects"
+              class="hover:text-primary dark:hover:text-secondary transition"
+              >Proyectos</a
+            >
+            <span class="mx-2">/</span>
+          </li>
+          <li class="text-primary dark:text-white" aria-current="page">
+            {project.title}
+          </li>
+        </ol>
+      </nav>
+      <div class="mb-8">
+        <img
+          src={project.image}
+          alt={project.title}
+          class="w-full max-h-56 sm:max-h-80 object-cover rounded-lg shadow-lg mb-4 sm:mb-6"
+        />
+        <h1 class="text-2xl sm:text-3xl font-bold mb-2">{project.title}</h1>
+        <p
+          class="text-xs sm:text-sm font-semibold uppercase tracking-wide text-primary mb-2"
+        >
+          TECNOLOGÍAS UTILIZADAS
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {
+            project.tags.map((tag) => (
+              <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 select-none dark:hover:bg-gray-600 hover:bg-gray-200">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+        <hr
+          class="my-4 sm:my-6 border-t border-gray-200 dark:border-gray-700"
+        />
+        <p
+          class="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-4 sm:mb-6"
+        >
+          {project.description}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {
+            project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1.5 12s3.5-7 10.5-7 10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="currentColor"
+                  />
+                </svg>
+                Ver resultado
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3.5 h-3.5 ml-1 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="vertical-align: baseline"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7h-6m6 0v6" />
+                </svg>
+              </a>
+            )
+          }
+          {
+            project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 mr-2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.426 2.865 8.179 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.579.688.481C19.138 20.197 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+                </svg>
+                Ver repositorio de GitHub
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3.5 h-3.5 ml-1 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="vertical-align: baseline"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7h-6m6 0v6" />
+                </svg>
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
