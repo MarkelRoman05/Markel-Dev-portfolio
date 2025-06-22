@@ -22,13 +22,13 @@ if (!project) {
   <Navbar />
   <main class="flex flex-col min-h-screen">
     <section
-      class="flex-1 py-10 md:py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
+      class="flex-1 py-10 md:py-20 transition-colors duration-300 bg-white dark:bg-gray-900 mt-14"
     >
       <div
         class="container px-2 sm:px-4 mx-auto max-w-full sm:max-w-2xl md:max-w-3xl"
       >
-        <nav class="mb-4 sm:mb-6 text-xs sm:text-sm" aria-label="Breadcrumb">
-          <ol class="list-reset flex flex-wrap text-gray-500 dark:text-gray-400">
+        <nav class="mb-4 sm:mb-6 text-xs sm:text-sm overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-1 -mx-1" aria-label="Breadcrumb">
+          <ol class="list-reset flex flex-nowrap text-gray-500 dark:text-gray-400">
             <li>
               <a
                 href="/"
@@ -79,14 +79,14 @@ if (!project) {
           >
             {project.description}
           </p>
-          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
             {
               project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition mb-2 sm:mb-0"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ if (!project) {
                   href={project.codeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition group"
+                  class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
