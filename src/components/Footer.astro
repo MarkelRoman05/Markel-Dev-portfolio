@@ -7,7 +7,23 @@ const currentYear = new Date().getFullYear();
       <p class="text-gray-700 dark:text-gray-300 mb-3">
         &copy; {currentYear} · Markel05
       </p>
-      <a class="text-gray-800 hover:text-primary dark:text-gray-400 text-sm dark:hover:text-white transition" href="#home">Volver arriba</a>
+      <a
+        id="scroll-top-link"
+        class="text-gray-800 hover:text-primary dark:text-gray-400 text-sm dark:hover:text-white transition"
+        href="#"
+      >
+        Volver arriba
+      </a>
     </div>
-  </div>
 </footer>
+<script>
+  if (typeof window !== "undefined") {
+    const link = document.getElementById("scroll-top-link");
+    if (link) {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  }
+</script>
