@@ -6,7 +6,7 @@ export const projects = [
       "El proyecto tiene como objetivo desarrollar una plataforma avanzada de ciberinteligencia que permita gestionar, analizar y compartir información sobre amenazas de manera estructurada y automatizada. Esta plataforma permite realizar el modelado de la “Postura de Ciberseguridad” (con puntuaciones) de una organización a partir de la identificación de las amenazas a las que hace frente. Para ello, utilizaremos el marco de MITRE ATT&CK. ATT&CK es una guía para clasificar y describir ciberataques e intrusiones. En lugar de observar los resultados de un ataque, identifica tácticas que indican que un ataque está en progreso.",
     image: "/images/panacea.jpg",
     tags: ["Vue.js", "Tailwind CSS", "FastAPI", "ArangoDB", "Docker"],
-    codeUrl: "https://github.com/Markel05-Elorrieta/DAM2_E2_T6_DI",
+    codeUrl: "",
     liveUrl: "",
   },
   {
