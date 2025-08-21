@@ -18,7 +18,7 @@ if (!project) {
 }
 ---
 
-<Layout title={`${project.title} | Proyectos`} >
+<Layout title={`${project.title} | Proyectos`}>
   <Navbar />
   <main class="flex flex-col min-h-screen">
     <section
@@ -27,29 +27,30 @@ if (!project) {
       <div
         class="container px-2 sm:px-4 mx-auto max-w-full sm:max-w-2xl md:max-w-3xl"
       >
-        <nav class="mb-4 sm:mb-6 text-xs sm:text-sm overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-1 -mx-1" aria-label="Breadcrumb">
-          <ol class="list-reset flex flex-nowrap text-gray-500 dark:text-gray-400">
-            <li>
-              <a
-                href="/"
-                class="hover:text-primary dark:hover:text-secondary transition"
-                >Inicio</a
+        <button
+          type="button"
+          onclick="history.back()"
+          class="mb-4 px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+        >
+            <span class="inline-flex items-center justify-center gap-2 w-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
               >
-              <span class="mx-2">/</span>
-            </li>
-            <li>
-              <a
-                href="/#projects"
-                class="hover:text-primary dark:hover:text-secondary transition"
-                >Proyectos</a
-              >
-              <span class="mx-2">/</span>
-            </li>
-            <li class="text-primary dark:text-white" aria-current="page">
-              {project.title}
-            </li>
-          </ol>
-        </nav>
+                <path
+                  d="M5 12H19M5 12L11 6M5 12L11 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              Volver atrás
+            </span>
+        </button>
         <div class="mb-8">
           <img
             src={project.image}
@@ -120,7 +121,11 @@ if (!project) {
                     stroke-width="2"
                     style="vertical-align: baseline"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7h-6m6 0v6" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17 7l-10 10M17 7h-6m6 0v6"
+                    />
                   </svg>
                 </a>
               )
@@ -151,7 +156,11 @@ if (!project) {
                     stroke-width="2"
                     style="vertical-align: baseline"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7h-6m6 0v6" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17 7l-10 10M17 7h-6m6 0v6"
+                    />
                   </svg>
                 </a>
               )
@@ -160,7 +169,9 @@ if (!project) {
         </div>
       </div>
     </section>
-    <footer class="w-full transition-colors duration-300 bg-white dark:bg-gray-900 !important">
+    <footer
+      class="w-full transition-colors duration-300 bg-white dark:bg-gray-900 !important"
+    >
       <div class="bg-white dark:bg-gray-900 transition-colors duration-300">
         <Footer />
       </div>
