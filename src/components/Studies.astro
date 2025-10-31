@@ -5,13 +5,8 @@ const studies = [
     institution: "iFP - Centro de Formación Profesional",
     period: "Actualmente",
     description:
-      "Especialización avanzada en inteligencia artificial y análisis de big data. Desarrollo de modelos de machine learning, procesamiento de grandes volúmenes de datos y implementación de soluciones de IA para resolver problemas complejos del mundo real.",
-    subjects: [
-      "Machine Learning",
-      "Deep Learning",
-      "Python",
-      "IA y Big Data",
-    ],
+      "Especialización avanzada en inteligencia artificial y análisis de big data. Desarrollo de modelos de machine learning, procesamiento de grandes volúmenes de datos e implementación de soluciones de IA para resolver problemas.",
+    subjects: ["Machine Learning", "Deep Learning", "Python", "IA y Big Data"],
   },
   {
     title: "Máster FP en Python",
@@ -19,9 +14,7 @@ const studies = [
     period: "Actualmente",
     description:
       "Formación especializada en desarrollo de aplicaciones con Python, utilizando las mejores prácticas y herramientas del ecosistema Python.",
-    subjects: [
-      "Python"
-    ],
+    subjects: ["Python", "PyCharm", "VSCode"],
   },
   {
     title: "Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
@@ -120,9 +113,6 @@ const studies = [
                 </p>
 
                 <div>
-                  <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    Materias principales:
-                  </h4>
                   <div class="flex flex-wrap gap-2">
                     {study.subjects.map((subject) => (
                       <span
