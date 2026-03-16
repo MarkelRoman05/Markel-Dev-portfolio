@@ -1,5 +1,15 @@
 export const projects = [
   {
+    slug: "pagaya-sistema-de-gestion-de-pagos",
+    title: "PagaYa · Sistema de gestión de pagos con amigos",
+    description:
+      "Una aplicación web y móvil que permite a los usuarios gestionar pagos compartidos con amigos. La app permite crear deudas, asignar montos a cada persona, enviar recordatorios de pago y realizar un seguimiento de las transacciones. Además, cuenta con una interfaz intuitiva y opciones de personalización. Se encuentra en desarrollo, con una versión web funcional y una versión móvil en progreso. El objetivo es facilitar la gestión de gastos compartidos y mejorar la experiencia de los usuarios al dividir cuentas entre amigos.",
+    image: "/images/pagaya.jpg",
+    tags: ["Next.js", "Tailwind CSS", "Supabase", "Vercel", "Capacitor"],
+    codeUrl: "https://github.com/MarkelRoman05/PagaYa",
+    liveUrl: "https://pagaya.vercel.app/",
+  },
+  {
     slug: "sistema-de-proteccion-y-analisis-de-ciberinteligencia",
     title: "Sistema de Protección y Análisis de Ciberinteligencia",
     description:
