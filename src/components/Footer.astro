@@ -2,21 +2,24 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="py-6 dark:bg-gray-800">
-    <div class="text-center">
-      <p class="text-gray-700 dark:text-gray-300 mb-3">
-        <span>&copy; {currentYear}</span>
-        <span>Markel05</span>
-      </p>
-      <a
-        id="scroll-top-link"
-        class="text-gray-800 hover:text-primary dark:text-gray-400 text-sm dark:hover:text-white transition"
-        href="#"
-      >
-        Volver arriba
+<footer class="py-8 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800">
+  <div class="container px-4 mx-auto">
+    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="Logo" class="h-8 w-auto opacity-80" />
+        <span class="text-gray-600 dark:text-gray-400">© {currentYear} Markel05</span>
+      </div>
+      
+      <a id="scroll-top-link" href="#" class="group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 group-hover:-translate-y-1 transition-transform">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"></path>
+        </svg>
+        <span>Volver arriba</span>
       </a>
     </div>
+  </div>
 </footer>
+
 <script>
   if (typeof window !== "undefined") {
     const link = document.getElementById("scroll-top-link");

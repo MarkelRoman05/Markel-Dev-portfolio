@@ -1,99 +1,49 @@
 ---
 import { projects } from "../data/projects";
 
-// Función para truncar la descripción
 function truncate(text: string, maxLength = 180) {
   if (!text) return "";
-  return text.length > maxLength
-    ? text.slice(0, maxLength).trimEnd() + "..."
-    : text;
+  return text.length > maxLength ? text.slice(0, maxLength).trimEnd() + "..." : text;
 }
 ---
 
-<section
-  id="projects"
-  class="py-20 transition-colors duration-300 bg-white dark:bg-gray-900"
->
+<section id="projects" class="py-24 bg-white dark:bg-surface-dark">
   <div class="container px-4 mx-auto">
     <div class="mb-16 text-center" data-aos="fade-up">
-      <h2 class="mb-4 text-3xl font-bold md:text-4xl">Mis proyectos</h2>
-      <div class="w-20 h-1 mx-auto rounded-full gradient-bg"></div>
-      <p
-        class="max-w-2xl mx-auto mt-4 text-gray-600 transition-colors duration-300 dark:text-gray-400"
-      >
-        Aquí puedes ver algunos de los proyectos en los que he trabajado
-        recientemente. Si te interesa alguno, no dudes en echarle un vistazo.
+      <h2 class="mb-4 text-4xl font-bold">Proyectos</h2>
+      <div class="w-24 h-1 mx-auto rounded-full gradient-bg"></div>
+      <p class="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-400">
+        Algunos de los proyectos en los que he trabajado recientemente.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-      {
-        projects.map((project, index) => (
-          <div
-            class="flex flex-col h-full overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:-translate-y-2"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-          >
-            <div class="relative h-48 overflow-hidden flex-shrink-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                class="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-            <div class="flex flex-col flex-1 p-6 justify-between">
-              <div>
-                <h3 class="mb-2 text-xl font-semibold transition-colors duration-300 dark:text-white">
-                  {project.title}
-                </h3>
-                <p class="mb-4 text-gray-600 transition-colors duration-300 dark:text-gray-400 flex-1 line-clamp-6">
-                  {truncate(project.description)}
-                </p>
-              </div>
-              <div class="flex flex-wrap gap-2 mt-auto mb-4">
-                {project.tags.map((tag) => (
-                  <span class="px-3 py-1 text-sm text-gray-700 transition-colors duration-300 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300 select-none dark:hover:bg-gray-600 hover:bg-gray-200">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div>
-                <a
-                  href={`/proyectos/${project.slug}/`}
-                  class="inline-flex items-center gap-2 px-5 py-2 mt-2 text-sm font-semibold text-white transition bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-lg shadow hover:from-blue-600 hover:via-purple-600 hover:to-indigo-700"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                    />
-                    <line
-                      x1="12"
-                      y1="16"
-                      x2="12"
-                      y2="12"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle cx="12" cy="8" r="1" fill="currentColor" />
-                  </svg>
-                  <span>Ver más información</span>
-                </a>
-              </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div class="group relative rounded-2xl bg-gray-50 dark:bg-white/5 shadow-card dark:shadow-card-dark overflow-hidden hover:shadow-glow-primary hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="relative h-56 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+            <img src={project.image} alt={project.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute bottom-4 left-4 z-20">
+              <span class="px-3 py-1 text-xs font-medium rounded-full bg-white/90 text-gray-800 backdrop-blur-sm">{project.tags[0]}</span>
             </div>
           </div>
-        ))
-      }
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 group-hover:text-primary dark:group-hover:text-secondary transition-colors">{project.title}</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">{truncate(project.description)}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.slice(0, 3).map((tag) => (
+                <span class="px-2.5 py-1 text-xs rounded-md bg-gray-200/50 dark:bg-white/10 text-gray-600 dark:text-gray-400">{tag}</span>
+              ))}
+            </div>
+            <a href={`/proyectos/${project.slug}/`} class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-xl gradient-bg hover:shadow-glow-primary transition-all duration-300">
+              <span>Ver detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

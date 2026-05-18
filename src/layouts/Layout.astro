@@ -16,7 +16,6 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- MS CLARITY -->
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] =
@@ -31,21 +30,25 @@ import "../styles/global.css";
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "s3ypzeozkw");
     </script>
-    <!-- --------- -->
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <Tooltips interactive={false} delay={[15, 150]} />
     <title>{title}</title>
   </head>
   <body
-    class="transition-colors duration-300 bg-light text-dark dark:bg-dark dark:text-white"
+    class="transition-colors duration-500 bg-light text-gray-800 dark:bg-dark dark:text-gray-200"
   >
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 -right-40 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl"></div>
+    </div>
     <slot />
     <script>
       import AOS from "aos";
@@ -58,7 +61,6 @@ import "../styles/global.css";
         mirror: false,
       });
 
-      // Tema oscuro / claro
       const initializeTheme = () => {
         const savedTheme = localStorage.getItem("MARKEL05_PORTFOLIO:THEME");
 
@@ -75,10 +77,8 @@ import "../styles/global.css";
         }
       };
 
-      // Set theme on initial load
       initializeTheme();
 
-      // Listen for theme toggle events
       document.addEventListener("themeToggle", () => {
         const isDark = document.documentElement.classList.contains("dark");
 
@@ -106,13 +106,27 @@ import "../styles/global.css";
   }
 
   .gradient-text {
-    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #f472b6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
   }
 
   .gradient-bg {
-    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #f472b6 100%);
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: inherit;
   }
 </style>

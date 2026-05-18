@@ -1,124 +1,45 @@
 ---
 const skills = [
-  {
-    name: "Angular",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
-  },
-  {
-    name: "Vue.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-  },
-  {
-    name: "Astro",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
-  },
-  {
-    name: "JavaScript",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  },
-  {
-    name: "TypeScript",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  },
-  {
-    name: "Python",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  },
-  {
-    name: "Tailwind CSS",
-    logo: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg",
-  },
-  {
-    name: "Node.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  {
-    name: "Java",
-    logo: "https://cdn.worldvectorlogo.com/logos/java-4.svg",
-  },
-  {
-    name: "MySQL",
-    logo: "https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg",
-  },
-  {
-    name: "Firebase",
-    logo: "https://cdn.worldvectorlogo.com/logos/firebase-1.svg",
-  },
-  {
-    name: "ArangoDB",
-    logo: "https://cdn.worldvectorlogo.com/logos/arangodb.svg",
-  },
-  {
-    name: "Git",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  },
-  {
-    name: "GitHub",
-    logo: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg",
-  },
-  {
-    name: "AWS",
-    logo: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-2.svg",
-  },
-  {
-    name: "Microsoft Azure",
-    logo: "https://cdn.worldvectorlogo.com/logos/azure-2.svg",
-  },
-  {
-    name: "Windows",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png",
-  },
-  {
-    name: "Linux",
-    logo: "https://cdn.worldvectorlogo.com/logos/tux.svg",
-  },
+  { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+  { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Astro", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg" },
+  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Tailwind CSS", logo: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Java", logo: "https://cdn.worldvectorlogo.com/logos/java-4.svg" },
+  { name: "MySQL", logo: "https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg" },
+  { name: "Firebase", logo: "https://cdn.worldvectorlogo.com/logos/firebase-1.svg" },
+  { name: "ArangoDB", logo: "https://cdn.worldvectorlogo.com/logos/arangodb.svg" },
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "GitHub", logo: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" },
+  { name: "AWS", logo: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-2.svg" },
+  { name: "Microsoft Azure", logo: "https://cdn.worldvectorlogo.com/logos/azure-2.svg" },
+  { name: "Windows", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" },
+  { name: "Linux", logo: "https://cdn.worldvectorlogo.com/logos/tux.svg" },
 ];
 ---
 
-<section
-  id="skills"
-  class="py-20 transition-colors duration-300 bg-gray-50 dark:bg-gray-800"
->
+<section id="skills" class="py-24 bg-gray-50 dark:bg-gray-900/50">
   <div class="container px-4 mx-auto">
     <div class="mb-16 text-center" data-aos="fade-up">
-      <h2 class="mb-4 text-3xl font-bold md:text-4xl">Skills</h2>
-      <div class="w-20 h-1 mx-auto rounded-full gradient-bg"></div>
-      <p
-        class="max-w-2xl mx-auto mt-4 text-gray-600 transition-colors duration-300 dark:text-gray-400"
-      >
-        Aquí tienes una lista de las tecnologías y herramientas con las que
-        estoy más familiarizado.
+      <h2 class="mb-4 text-4xl font-bold">Skills</h2>
+      <div class="w-24 h-1 mx-auto rounded-full gradient-bg"></div>
+      <p class="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-400">
+        Tecnologías y herramientas con las que estoy más familiarizado.
       </p>
     </div>
 
-    <div
-      class="p-8 transition-colors duration-300 bg-white rounded-lg shadow-md dark:bg-gray-700"
-      data-aos="fade-up"
-    >
-      <div
-        class="grid grid-cols-2 gap-8 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
-      >
-        {
-          skills.map((skill, index) => (
-            <div
-              class="flex flex-col items-center justify-center gap-3 transition-transform duration-300 hover:scale-110"
-              data-aos="fade-up"
-              data-aos-delay={index * 30}
-            >
-              <div class="flex items-center justify-center w-16 h-16 transition-transform duration-500 hover:scale-110">
-                <img
-                  src={skill.logo}
-                  alt={`${skill.name} logo`}
-                  class="max-w-full max-h-full"
-                />
-              </div>
-              <span class="text-sm font-medium text-center text-gray-700 transition-colors duration-300 dark:text-gray-300">
-                {skill.name}
-              </span>
-            </div>
-          ))
-        }
-      </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4" data-aos="fade-up" data-aos-delay="100">
+      {skills.map((skill, index) => (
+        <div class="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-white/5 shadow-card dark:shadow-card-dark hover:shadow-glow-primary hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 50}>
+          <div class="flex items-center justify-center w-14 h-14 mb-3 transition-transform duration-300 group-hover:scale-110">
+            <img src={skill.logo} alt={`${skill.name} logo`} class="max-w-full max-h-full" />
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
