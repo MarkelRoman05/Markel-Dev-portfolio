@@ -15,7 +15,7 @@ const skills = [
   { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub", logo: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" },
   { name: "AWS", logo: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-2.svg" },
-  { name: "Microsoft Azure", logo: "https://cdn.worldvectorlogo.com/logos/azure-2.svg" },
+  { name: "Docker", logo: "https://cdn.worldvectorlogo.com/logos/docker-4.svg" },
   { name: "Windows", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" },
   { name: "Linux", logo: "https://cdn.worldvectorlogo.com/logos/tux.svg" },
 ];
@@ -37,7 +37,7 @@ const skills = [
           <div class="flex items-center justify-center w-14 h-14 mb-3 transition-transform duration-300 group-hover:scale-110">
             <img src={skill.logo} alt={`${skill.name} logo`} class="max-w-full max-h-full" />
           </div>
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+          <span class="flex min-h-[2.75rem] w-full items-center justify-center text-center text-sm font-medium leading-tight text-gray-700 dark:text-gray-300">{skill.name}</span>
         </div>
       ))}
     </div>

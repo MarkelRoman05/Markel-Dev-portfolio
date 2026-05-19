@@ -59,6 +59,7 @@ import "../styles/global.css";
         easing: "ease-in-out",
         once: true,
         mirror: false,
+        disable: () => window.innerWidth < 768,
       });
 
       const initializeTheme = () => {
@@ -97,12 +98,21 @@ import "../styles/global.css";
 <style is:global>
   html {
     font-family: "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
   }
 
   body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 767px) {
+    [data-aos] {
+      transform: none !important;
+      opacity: 1 !important;
+    }
   }
 
   .gradient-text {
