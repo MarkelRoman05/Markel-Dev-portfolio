@@ -10,6 +10,15 @@ export const projects = [
     liveUrl: "https://pagaya.vercel.app/",
   },
   {
+    slug: "glucocheck",
+    title: "GlucoCheck · Clasificador del riesgo de Diabetes tipo 2",
+    description: "GlucoCheck es un sistema de clasificación del riesgo de Diabetes tipo 2 mediante Big Data e Inteligencia Artificial a partir de variables clínicas y biométricas. El sistema integra un pipeline de procesamiento de datos, modelos de aprendizaje automático supervisado y una capa de visualización interactiva orientada a la exploración analítica de los resultados. El proyecto responde a una necesidad real del sector sanitario: la identificación temprana de perfiles de riesgo asociados a la diabetes tipo 2, una enfermedad crónica de alta prevalencia a nivel mundial.",
+    image: "/images/glucocheck.jpeg",
+    tags: ["HTML", "JavaScript", "Python", "FastAPI", "Netlify", "Railway"],
+    codeUrl: "https://github.com/MarkelRoman05/GlucoCheck",
+    liveUrl: "https://remarkable-fenglisu-735967.netlify.app/",
+  },
+  {
     slug: "sistema-de-proteccion-y-analisis-de-ciberinteligencia",
     title: "Sistema de Protección y Análisis de Ciberinteligencia",
     description:
