@@ -5,14 +5,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
-        secondary: '#a855f7',
-        accent: '#f472b6',
-        dark: '#0a0a0f',
-        light: '#fafafa',
+        primary: '#0d9488',
+        secondary: '#059669',
+        accent: '#06b6d4',
+        dark: '#0f172a',
+        light: '#f8fafc',
         surface: {
           light: '#ffffff',
-          dark: '#18181b'
+          dark: '#1e293b'
         }
       },
       fontFamily: {
@@ -20,7 +20,7 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f472b6 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #0d9488 0%, #059669 50%, #06b6d4 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -33,8 +33,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.5)' },
+          '0%': { boxShadow: '0 0 20px rgba(13, 148, 136, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(5, 150, 105, 0.5)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -42,8 +42,8 @@ export default {
         }
       },
       boxShadow: {
-        'glow-primary': '0 0 30px rgba(99, 102, 241, 0.3)',
-        'glow-secondary': '0 0 30px rgba(168, 85, 247, 0.3)',
+        'glow-primary': '0 0 30px rgba(13, 148, 136, 0.3)',
+        'glow-secondary': '0 0 30px rgba(5, 150, 105, 0.3)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
         'card-dark': '0 4px 20px rgba(0, 0, 0, 0.4)',
       }
