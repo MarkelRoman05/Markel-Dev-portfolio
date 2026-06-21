@@ -2,32 +2,33 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="py-8 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800">
-  <div class="container px-4 mx-auto">
-    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-      <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="Logo" class="h-8 w-auto opacity-80" />
-        <span class="text-gray-600 dark:text-gray-400">© {currentYear} Markel05</span>
-      </div>
-      
-      <a id="scroll-top-link" href="#" class="group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 group-hover:-translate-y-1 transition-transform">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"></path>
-        </svg>
-        <span>Volver arriba</span>
-      </a>
-    </div>
+<footer class="border-t border-line-subtle dark:border-line-dark-subtle">
+  <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
+    <p class="eyebrow text-ink-muted dark:text-ink-dark-muted">
+      © {currentYear} Markel Román
+    </p>
+
+    <a
+      id="scroll-top-link"
+      href="#home"
+      class="eyebrow group inline-flex items-center gap-2 text-ink-muted transition-colors duration-300 hover:text-accent dark:text-ink-dark-muted"
+    >
+      <span aria-hidden="true" class="inline-block transition-transform duration-500 group-hover:-translate-y-1">↑</span>
+      Volver arriba
+    </a>
+
+    <p class="eyebrow text-ink-subtle dark:text-ink-dark-subtle">
+      Hecho con <span class="text-accent">Astro</span> y <span class="text-accent">Tailwind CSS</span>
+    </p>
   </div>
 </footer>
 
 <script>
   if (typeof window !== "undefined") {
     const link = document.getElementById("scroll-top-link");
-    if (link) {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
+    link?.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 </script>

@@ -2,48 +2,81 @@
 
 ---
 
-<section id="about" class="py-24 bg-white dark:bg-surface-dark">
-  <div class="container px-4 mx-auto">
-    <div class="mb-16 text-center" data-aos="fade-up">
-      <h2 class="mb-4 text-4xl font-bold">Sobre mí</h2>
-      <div class="w-24 h-1 mx-auto rounded-full gradient-bg"></div>
+<section id="about" class="relative py-24 md:py-32">
+  <div class="mx-auto max-w-7xl px-6 md:px-10">
+    <div class="grid grid-cols-12 gap-y-12 md:gap-x-10">
+      <header class="col-span-12 mb-12 flex items-baseline gap-6 reveal md:col-span-4 md:mb-0">
+        <span class="eyebrow text-accent">§ 01</span>
+        <span class="eyebrow text-ink-muted dark:text-ink-dark-muted">Sobre mí</span>
+      </header>
+
+      <div class="col-span-12 reveal md:col-span-8">
+        <h2
+          class="display max-w-3xl text-[clamp(1.75rem,3.6vw,2.75rem)] font-light leading-[1.1] text-ink dark:text-ink-dark"
+        >
+          Soy un
+          <span class="italic text-accent">Desarrollador</span>
+          y Administrador de Sistemas con experiencia en tecnologías web,
+          aplicaciones y sistemas informáticos.
+        </h2>
+      </div>
     </div>
 
-    <div class="flex flex-col items-center gap-10 md:flex-row">
-      <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="800">
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-20"></div>
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1772&q=80" alt="Developer working" class="relative w-full rounded-2xl shadow-xl" />
+    <div class="mt-20 grid grid-cols-12 gap-y-12 md:gap-x-10">
+      <div class="col-span-12 reveal md:col-span-7">
+        <div class="space-y-5 text-ink-muted dark:text-ink-dark-muted">
+          <p class="max-w-prose leading-relaxed">
+            Desde pequeño siempre me ha gustado la tecnología y la informática.
+            Me gusta aprender cosas nuevas constantemente en este ámbito.
+          </p>
+          <p class="max-w-prose leading-relaxed">
+            Empecé estudiando
+            <span class="text-ink dark:text-ink-dark">Administración de Sistemas Informáticos en Red</span>
+            y posteriormente me especialicé en
+            <span class="text-ink dark:text-ink-dark">Desarrollo de Aplicaciones Multiplataforma</span>.
+            Tras estar trabajando brevemente de Administrador de Sistemas, decidí
+            dar el salto al mundo del desarrollo de aplicaciones, algo que siempre he querido hacer.
+          </p>
         </div>
       </div>
 
-      <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-        <h3 class="mb-6 text-2xl font-semibold">
-          Soy un <span class="gradient-text">Desarrollador y Administrador de Sistemas</span> con experiencia en tecnologías web, aplicaciones y en sistemas informáticos
-        </h3>
+      <aside
+        class="col-span-12 reveal md:col-span-5 md:translate-y-8"
+        style="transition-delay: 120ms"
+      >
+        <figure class="relative ml-auto w-full max-w-md">
+          <div
+            class="absolute -left-1.5 -top-1.5 z-10 h-3 w-3 bg-accent md:-left-2 md:-top-2 md:h-4 md:w-4"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="overflow-hidden border border-line-subtle dark:border-line-dark-subtle">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1772&q=80"
+              alt="Desarrollador trabajando"
+              class="aspect-[4/5] w-full object-cover grayscale transition duration-700 hover:grayscale-0"
+              loading="lazy"
+            />
+          </div>
+        </figure>
+      </aside>
+    </div>
 
-        <div class="space-y-4">
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Desde pequeño siempre me ha gustado la tecnología y la informática. Me gusta aprender cosas nuevas constantemente en este ámbito.
-          </p>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Empecé estudiando Administración de Sistemas Informáticos en Red y posteriormente me especialicé en Desarrollo de Aplicaciones Multiplataforma.
-            Tras estar trabajando brevemente de Administrador de Sistemas, decidí dar el salto al mundo del desarrollo de aplicaciones, algo que siempre he querido hacer.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-3 mt-8">
-          <div class="px-4 py-2 rounded-full bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary text-sm font-medium">
-            🚀 Proactivo
-          </div>
-          <div class="px-4 py-2 rounded-full bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary text-sm font-medium">
-            💡 Creativo
-          </div>
-          <div class="px-4 py-2 rounded-full bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary text-sm font-medium">
-            🎯 Detallista
-          </div>
-        </div>
-      </div>
+    <div
+      class="mt-24 flex flex-col gap-6 border-t border-line-subtle pt-10 dark:border-line-dark-subtle reveal md:flex-row md:items-baseline md:gap-10"
+    >
+      <span class="eyebrow shrink-0 text-ink-muted dark:text-ink-dark-muted">
+        Manifiesto
+      </span>
+      <p
+        class="display flex flex-wrap items-baseline gap-x-6 gap-y-2 text-[clamp(1.5rem,3.2vw,2.5rem)] font-light leading-none text-ink dark:text-ink-dark"
+      >
+        <span>Proactivo</span>
+        <span class="text-accent">·</span>
+        <span>Creativo</span>
+        <span class="text-accent">·</span>
+        <span class="italic">Detallista</span>
+      </p>
     </div>
   </div>
 </section>

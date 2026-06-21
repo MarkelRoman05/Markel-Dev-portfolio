@@ -1,169 +1,257 @@
 ---
 const navItems = [
-  { name: "Inicio", url: "/" },
-  { name: "Sobre mí", url: "/#about" },
-  { name: "Formación", url: "/#studies" },
-  { name: "Experiencia", url: "/#experience" },
-  { name: "Skills", url: "/#skills" },
-  { name: "Proyectos", url: "/#projects" },
-  { name: "Contacto", url: "/#contact" },
+  { name: "Inicio", url: "/#home", id: "home" },
+  { name: "Sobre mí", url: "/#about", id: "about" },
+  { name: "Formación", url: "/#studies", id: "studies" },
+  { name: "Experiencia", url: "/#experience", id: "experience" },
+  { name: "Stack", url: "/#skills", id: "skills" },
+  { name: "Proyectos", url: "/#projects", id: "projects" },
+  { name: "Contacto", url: "/#contact", id: "contact" },
 ];
 ---
 
 <header
-  class="fixed z-50 w-full transition-colors duration-300 bg-white/80 dark:bg-dark/80 backdrop-blur-md"
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
 >
-  <div class="container flex items-center justify-between px-4 py-4 mx-auto">
-    <a href="/" class="text-2xl font-bold gradient-text">
-      <img
-        src="/logo.png"
-        alt="Logo"
-        class="h-10 w-auto filter brightness-0 invert-0.5 dark:invert hover:animate-pulse duration-300"
-      />
-    </a>
+  <div
+    class="border-b border-line-subtle/0 dark:border-line-dark-subtle/0 backdrop-blur-md bg-paper/70 dark:bg-paper-dark/70"
+  >
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
+      <a
+        href="/#home"
+        class="group flex items-center gap-3 text-ink dark:text-ink-dark"
+        aria-label="Inicio"
+      >
+        <img
+          src="/logo.png"
+          alt=""
+          width="48"
+          height="32"
+          class="block h-7 w-auto transition-opacity duration-300 group-hover:opacity-70 invert dark:invert-0 sm:h-8"
+        />
+      </a>
 
-    <div class="flex items-center gap-6">
-      <nav class="hidden md:block">
-        <ul class="flex space-x-5">
+      <nav class="hidden md:block" aria-label="Principal">
+        <ul class="flex items-center gap-7">
           {
-            navItems.map((item, index) => (
-              <>
-                <li>
-                  <a
-                    href={item.url}
-                    class="font-medium transition-colors duration-300 text-dark dark:text-white dark:hover:text-secondary hover:text-primary"
-                  >
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  data-nav={item.id}
+                  class="eyebrow group relative inline-block py-1 text-ink-muted transition-colors duration-300 hover:text-ink dark:text-ink-dark-muted dark:hover:text-ink-dark"
+                >
+                  <span class="relative">
                     {item.name}
-                  </a>
-                </li>
-                {index < navItems.length - 1 && (
-                  <span class="select-none text-dark dark:text-white">|</span>
-                )}
-              </>
+                    <span
+                      data-nav-marker={item.id}
+                      class="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-500 ease-editorial group-[.is-active]:w-full"
+                    ></span>
+                  </span>
+                </a>
+              </li>
             ))
           }
         </ul>
       </nav>
 
-      <button
-        id="theme-toggle"
-        title="Cambiar tema"
-        data-tooltip-placement="bottom"
-        class="p-2 ml-5 text-gray-700 transition-colors bg-gray-100 rounded-full dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="hidden w-5 h-5 dark:block"
+      <div class="flex items-center gap-3">
+        <button
+          id="theme-toggle"
+          type="button"
+          title="Cambiar tema"
+          aria-label="Cambiar tema"
+          class="grid h-9 w-9 place-items-center text-ink-muted transition-colors hover:text-accent dark:text-ink-dark-muted dark:hover:text-accent"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-          ></path>
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.25"
+            stroke="currentColor"
+            class="hidden h-5 w-5 dark:block"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.25"
+            stroke="currentColor"
+            class="block h-5 w-5 dark:hidden"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+            ></path>
+          </svg>
+        </button>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="block w-5 h-5 dark:hidden"
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="grid h-9 w-9 place-items-center text-ink transition-colors hover:text-accent dark:text-ink-dark dark:hover:text-accent md:hidden"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-          ></path>
-        </svg>
-      </button>
-
-      <button
-        id="menu-toggle"
-        class="md:hidden text-dark dark:text-white dark:hover:text-secondary hover:text-primary transition-all duration-200"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="26"
-          height="26"
-          fill="currentColor"
-          class="bi bi-list menu-icon"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-          ></path>
-        </svg>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          class="bi bi-x-lg close-icon hidden"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
-          ></path>
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+            class="menu-icon h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M3.5 7h17M3.5 12h17M3.5 17h17" stroke-linecap="round" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+            class="close-icon hidden h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M5 5l14 14M19 5L5 19" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
-
-  <!-- Menú para móvil -->
-  <div
-    id="mobile-menu"
-    class="hidden transition-colors duration-300 bg-white md:hidden dark:bg-dark"
-  >
-    <ul class="flex flex-col px-4 py-4">
-      {
-        navItems.map((item) => (
-          <li class="py-2">
-            <a
-              href={item.url}
-              class="font-medium transition-colors duration-300 text-dark dark:text-white hover:text-primary dark:hover:text-secondary mobile-link"
-            >
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </div>
 </header>
 
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 hidden bg-paper text-ink dark:bg-paper-dark dark:text-ink-dark md:hidden"
+  aria-hidden="true"
+>
+  <div class="flex h-full flex-col px-6 pb-10 pt-28">
+    <span class="eyebrow text-ink-muted dark:text-ink-dark-muted">Índice</span>
+    <nav class="mt-8 flex-1" aria-label="Móvil">
+      <ol class="display flex flex-col gap-1 text-[clamp(2.25rem,9vw,3.5rem)] font-light leading-none">
+        {
+          navItems.map((item, i) => (
+            <li class="overflow-hidden">
+              <a
+                href={item.url}
+                data-nav={item.id}
+                class="mobile-link group flex items-baseline gap-4 py-1 transition-colors hover:text-accent"
+              >
+                <span class="eyebrow text-ink-subtle dark:text-ink-dark-subtle">
+                  0{i + 1}
+                </span>
+                <span>{item.name}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <div class="mt-10 flex flex-wrap gap-6 border-t border-line-subtle pt-6 text-sm dark:border-line-dark-subtle">
+      <a
+        href="https://github.com/MarkelRoman05"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="editorial-link text-ink-muted dark:text-ink-dark-muted"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/markel-rom%C3%A1n-gonz%C3%A1lez/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="editorial-link text-ink-muted dark:text-ink-dark-muted"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:markromagonz@gmail.com"
+        class="editorial-link text-ink-muted dark:text-ink-dark-muted"
+      >
+        markromagonz@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
-    const themeToggle = document.getElementById("theme-toggle");
-    const menuIcon = document.querySelector(".menu-icon");
-    const closeIcon = document.querySelector(".close-icon");
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.querySelector<HTMLElement>(".menu-icon");
+  const closeIcon = document.querySelector<HTMLElement>(".close-icon");
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>(".mobile-link");
 
-    menuToggle?.addEventListener("click", () => {
-      mobileMenu?.classList.toggle("hidden");
-      menuIcon?.classList.toggle("hidden");
-      closeIcon?.classList.toggle("hidden");
-    });
+  const setMenu = (open: boolean) => {
+    if (!mobileMenu || !menuToggle || !menuIcon || !closeIcon) return;
+    mobileMenu.classList.toggle("hidden", !open);
+    mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menuToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    menuIcon.classList.toggle("hidden", open);
+    closeIcon.classList.toggle("hidden", !open);
+    document.body.style.overflow = open ? "hidden" : "";
+  };
 
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu?.classList.add("hidden");
-        menuIcon?.classList.remove("hidden");
-        closeIcon?.classList.add("hidden");
-      });
-    });
-
-    // Theme toggle functionality
-    themeToggle?.addEventListener("click", () => {
-      document.dispatchEvent(new CustomEvent("themeToggle"));
-    });
+  menuToggle?.addEventListener("click", () => {
+    const open = mobileMenu?.classList.contains("hidden") ?? false;
+    setMenu(open);
   });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !mobileMenu?.classList.contains("hidden")) setMenu(false);
+  });
+
+  // Theme toggle
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    document.dispatchEvent(new CustomEvent("themeToggle"));
+  });
+
+  // Scroll-spy: highlight active section link
+  const sectionIds = ["home", "about", "studies", "experience", "skills", "projects", "contact"];
+  const navLinks = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>("[data-nav]")
+  );
+  const linkById = new Map(
+    navLinks.map((l) => [l.dataset.nav, l] as const)
+  );
+
+  const setActive = (id: string) => {
+    navLinks.forEach((l) => l.classList.remove("is-active"));
+    linkById.get(id)?.classList.add("is-active");
+  };
+
+  if ("IntersectionObserver" in window) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry with the largest intersection ratio that's intersecting
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target.id) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+    setActive("home");
+  }
 </script>

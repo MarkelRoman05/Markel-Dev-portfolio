@@ -19,27 +19,62 @@ const skills = [
   { name: "Windows", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.png" },
   { name: "Linux", logo: "https://cdn.worldvectorlogo.com/logos/tux.svg" },
 ];
+
+const groups: { label: string; items: string[] }[] = [
+  { label: "Frontend", items: ["Angular", "Vue.js", "Astro", "TypeScript", "JavaScript", "Tailwind CSS"] },
+  { label: "Backend", items: ["Node.js", "Python", "Java"] },
+  { label: "Datos", items: ["MySQL", "Firebase", "ArangoDB"] },
+  { label: "Cloud & DevOps", items: ["AWS", "Docker", "Git", "GitHub"] },
+  { label: "Sistemas", items: ["Linux", "Windows"] },
+];
+
+const emphasis = new Set(["Angular", "Vue.js", "TypeScript", "Node.js", "Python"]);
 ---
 
-<section id="skills" class="py-24 bg-gray-50 dark:bg-gray-900/50">
-  <div class="container px-4 mx-auto">
-    <div class="mb-16 text-center" data-aos="fade-up">
-      <h2 class="mb-4 text-4xl font-bold">Skills</h2>
-      <div class="w-24 h-1 mx-auto rounded-full gradient-bg"></div>
-      <p class="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-400">
-        Tecnologías y herramientas con las que estoy más familiarizado.
-      </p>
-    </div>
+<section id="skills" class="relative border-t border-line-subtle py-24 dark:border-line-dark-subtle md:py-32">
+  <div class="mx-auto max-w-7xl px-6 md:px-10">
+    <header
+      class="reveal grid grid-cols-12 items-end gap-6 border-b border-line-subtle pb-8 dark:border-line-dark-subtle md:gap-10"
+    >
+      <div class="col-span-12 flex items-baseline gap-6 md:col-span-4">
+        <span class="eyebrow text-accent">§ 04</span>
+        <span class="eyebrow text-ink-muted dark:text-ink-dark-muted">Stack</span>
+      </div>
+      <h2
+        class="display col-span-12 text-[clamp(1.75rem,3.6vw,2.75rem)] font-light leading-[1.1] text-ink dark:text-ink-dark md:col-span-8"
+      >
+        Tecnologías y herramientas con las que
+        <span class="italic text-accent">trabajo</span>
+        habitualmente.
+      </h2>
+    </header>
 
-    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4" data-aos="fade-up" data-aos-delay="100">
-      {skills.map((skill, index) => (
-        <div class="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-white/5 shadow-card dark:shadow-card-dark hover:shadow-glow-primary hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 50}>
-          <div class="flex items-center justify-center w-14 h-14 mb-3 transition-transform duration-300 group-hover:scale-110">
-            <img src={skill.logo} alt={`${skill.name} logo`} class="max-w-full max-h-full" />
+    <dl class="mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
+      {
+        groups.map((group, index) => (
+          <div
+            class="reveal col-span-12 grid grid-cols-12 gap-4 border-b border-line-subtle pb-10 last:border-0 last:pb-0 dark:border-line-dark-subtle md:gap-10 md:border-0 md:pb-0"
+            style={`transition-delay: ${index * 80}ms`}
+          >
+            <dt class="eyebrow col-span-12 text-ink-muted dark:text-ink-dark-muted md:col-span-3">
+              {group.label}
+            </dt>
+            <dd class="col-span-12 flex flex-wrap items-baseline gap-x-4 gap-y-2 md:col-span-9">
+              {group.items.map((item) => (
+                <span
+                  class={`display font-light leading-none transition-colors duration-300 ${
+                    emphasis.has(item)
+                      ? "text-[clamp(1.5rem,2.8vw,2.25rem)] text-ink hover:text-accent dark:text-ink-dark dark:hover:text-accent"
+                      : "text-[clamp(1.125rem,1.9vw,1.5rem)] text-ink-muted hover:text-ink dark:text-ink-dark-muted dark:hover:text-ink-dark"
+                  }`}
+                >
+                  {item}
+                </span>
+              ))}
+            </dd>
           </div>
-          <span class="flex min-h-[2.75rem] w-full items-center justify-center text-center text-sm font-medium leading-tight text-gray-700 dark:text-gray-300">{skill.name}</span>
-        </div>
-      ))}
-    </div>
+        ))
+      }
+    </dl>
   </div>
 </section>
