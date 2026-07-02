@@ -26,16 +26,13 @@ if (!project) {
         href="/#projects"
         class="eyebrow editorial-link inline-flex items-center gap-2 text-ink-muted transition-colors duration-300 hover:text-accent dark:text-ink-dark-muted"
       >
-        <span aria-hidden="true">←</span>
+        <span aria-hidden="true">← </span>
         Volver a proyectos
       </a>
 
       <header class="mt-12 grid grid-cols-12 gap-y-6 md:gap-x-10">
         <div class="col-span-12 md:col-span-3">
           <p class="eyebrow text-accent">Proyecto</p>
-          <p class="eyebrow mt-2 text-ink-muted dark:text-ink-dark-muted">
-            {project.tags[0]}
-          </p>
         </div>
 
         <h1
@@ -54,7 +51,7 @@ if (!project) {
       </div>
 
       <div class="reveal mt-10">
-        <p class="eyebrow mb-4 text-ink-muted dark:text-ink-dark-muted">Stack utilizado</p>
+        <p class="eyebrow mb-4 italic text-ink-muted dark:text-ink-dark-muted">Stack tecnológico</p>
         <ul class="flex flex-wrap gap-3">
           {
             project.tags.map((tag) => (
@@ -66,7 +63,8 @@ if (!project) {
         </ul>
       </div>
 
-      <div class="reveal mt-10">
+      <div class="reveal mt-7">
+        <p class="eyebrow mb-4 italic text-ink-muted dark:text-ink-dark-muted">Descripción</p>
         <p
           class="display text-[clamp(1.125rem,1.8vw,1.5rem)] font-light leading-relaxed text-ink dark:text-ink-dark"
         >
@@ -78,7 +76,7 @@ if (!project) {
         (project.liveUrl || project.codeUrl) && (
           <section class="mt-10 grid grid-cols-12 gap-y-10 border-t border-line-subtle pt-12 dark:border-line-dark-subtle md:gap-x-10">
             <div class="reveal col-span-12 md:col-span-3">
-              <p class="eyebrow text-ink-muted dark:text-ink-dark-muted">Enlaces</p>
+              <p class="eyebrow italic text-ink-muted dark:text-ink-dark-muted">Enlaces</p>
             </div>
             <div class="col-span-12 flex flex-col gap-4 md:col-span-9">
               {project.liveUrl && (
@@ -142,13 +140,6 @@ if (!project) {
         <p class="eyebrow text-ink-muted dark:text-ink-dark-muted">
           Fin del proyecto
         </p>
-        <a
-          href="/#projects"
-          class="eyebrow editorial-link inline-flex items-center gap-2 text-ink hover:text-accent dark:text-ink-dark"
-        >
-          <span aria-hidden="true">←</span>
-          Todos los proyectos
-        </a>
       </section>
     </article>
   </main>
