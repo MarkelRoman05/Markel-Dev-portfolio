@@ -89,9 +89,15 @@ function truncate(text: string, maxLength = 180) {
 
                 <a
                   href={`/proyectos/${project.slug}/`}
-                  class="eyebrow editorial-link mt-8 inline-flex items-center gap-2 text-ink hover:text-accent dark:text-ink-dark"
+                  class="group eyebrow mt-8 inline-flex items-center gap-3 border border-line-subtle px-6 py-3.5 text-ink transition-colors duration-300 hover:border-accent hover:text-accent dark:border-line-dark-subtle dark:text-ink-dark"
                 >
                   Ver proyecto
+                  <span
+                    class="text-accent transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
                 </a>
               </div>
             </li>
