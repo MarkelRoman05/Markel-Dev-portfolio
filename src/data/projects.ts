@@ -50,4 +50,15 @@ export const projects = [
     codeUrl: "https://github.com/Markel05-Elorrieta/Talk2Sign_APP",
     liveUrl: "",
   },
+  {
+    slug: "el-impostor",
+    title: "El Impostor · Juego multijugador online",
+    description:
+      "El Impostor es un juego de mesa multijugador online donde los jugadores deben descubrir al impostor entre ellos. Está desarrollado con Angular, Node.js y Socket.IO. El proyecto se encuentra en desarrollo. Permite crear salas, unirse a ellas y gestionar partidas.",
+    image:
+      "/images/impostor.png",
+    tags: ["Angular", "Node.js", "Socket.IO"],
+    codeUrl: "https://github.com/MarkelRoman05/el-juego-del-impostor",
+    liveUrl: "https://impostor.markel05.me/",
+  }
 ];
