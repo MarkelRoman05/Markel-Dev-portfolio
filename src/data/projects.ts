@@ -10,6 +10,17 @@ export const projects = [
     liveUrl: "https://pagaya.vercel.app/",
   },
   {
+    slug: "el-impostor",
+    title: "El Impostor · Juego multijugador online",
+    description:
+      "El Impostor es un juego de mesa multijugador online donde los jugadores deben descubrir al impostor entre ellos. Está desarrollado con Angular, Node.js y Socket.IO. El proyecto se encuentra en desarrollo. Permite crear salas, unirse a ellas y gestionar partidas.",
+    image:
+      "/images/impostor.png",
+    tags: ["Angular", "Node.js", "Socket.IO"],
+    codeUrl: "https://github.com/MarkelRoman05/el-juego-del-impostor",
+    liveUrl: "https://impostor.markel05.me/",
+  },
+  {
     slug: "glucocheck",
     title: "GlucoCheck · Clasificador del riesgo de Diabetes tipo 2",
     description: "GlucoCheck es un sistema de clasificación del riesgo de Diabetes tipo 2 mediante Big Data e Inteligencia Artificial a partir de variables clínicas y biométricas. El sistema integra un pipeline de procesamiento de datos, modelos de aprendizaje automático supervisado y una capa de visualización interactiva orientada a la exploración analítica de los resultados. El proyecto responde a una necesidad real del sector sanitario: la identificación temprana de perfiles de riesgo asociados a la diabetes tipo 2, una enfermedad crónica de alta prevalencia a nivel mundial.",
@@ -49,16 +60,5 @@ export const projects = [
     tags: ["Android Studio", "Java", "AWS", "Figma"],
     codeUrl: "https://github.com/Markel05-Elorrieta/Talk2Sign_APP",
     liveUrl: "",
-  },
-  {
-    slug: "el-impostor",
-    title: "El Impostor · Juego multijugador online",
-    description:
-      "El Impostor es un juego de mesa multijugador online donde los jugadores deben descubrir al impostor entre ellos. Está desarrollado con Angular, Node.js y Socket.IO. El proyecto se encuentra en desarrollo. Permite crear salas, unirse a ellas y gestionar partidas.",
-    image:
-      "/images/impostor.png",
-    tags: ["Angular", "Node.js", "Socket.IO"],
-    codeUrl: "https://github.com/MarkelRoman05/el-juego-del-impostor",
-    liveUrl: "https://impostor.markel05.me/",
   }
 ];
